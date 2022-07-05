@@ -174,19 +174,15 @@ h4 {
   height: 20%;
 }
 
-.volume-container i {
+.volume-container svg {
   width: 100%;
   padding: 2px;
 }
 
-.volume-container i:hover {
+.volume-container svg:hover {
   background-color: var(--gray-light);
   border-radius: 10px;
   cursor: pointer;
-}
-
-.ri-volume-mute-line {
-  color: var(--red);
 }
 
 .btn-volume {
@@ -370,4 +366,12 @@ input[type="range"]::-webkit-slider-thumb {
   position: absolute;
   z-index: 1;
   pointer-events: none;
+}
+
+.svg-volume {
+  fill: var(--blue);
+}
+
+.red {
+  fill: var(--red);
 }
