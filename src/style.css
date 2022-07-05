@@ -175,7 +175,7 @@ h4 {
 }
 
 .volume-container i {
-  width: 50%;
+  width: 100%;
   padding: 2px;
 }
 
@@ -193,8 +193,8 @@ h4 {
   height: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
+  text-align: left;
 }
 
 .mtn-circle {
@@ -210,8 +210,8 @@ h4 {
   overflow: hidden;
 }
 
-.mtn-circle input,
-.mtn-circle input:focus {
+.mtn-circle input[type="number"],
+.mtn-circle input[type="number"]:focus {
   font-family: 'Bebas Neue', cursive;
   background-color: transparent;
   border: 0;
@@ -221,6 +221,12 @@ h4 {
   max-width: 100%;
   text-align: center;
   outline: none;
+}
+
+.mtn-circle input[type=number]::-webkit-inner-spin-button, 
+.mtn-circle input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
 .mtn-circle button {
@@ -270,29 +276,26 @@ h4 {
   font-size: 1.6rem;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
-}
+/* Input RANGE */
 
-input[type='range'],
-input[type='range']:focus {
+input[type="range"],
+input[type="range"]:focus {
   overflow: hidden;
-  width: 100%;
+  border-radius: 5px;
+  width: 80%;
+  background-size: 30px 60px;
   -webkit-appearance: none;
   background-color: rgba(255,255,255,.2);
 }
 
-input[type='range']::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
   height: 10px;
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
   color: var(--blue);
   margin-top: -1px;
-  border-radius: 5px;
 }
 
-input[type='range']::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   width: 10px;
   -webkit-appearance: none;
   height: 10px;

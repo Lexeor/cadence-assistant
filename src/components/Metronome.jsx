@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import TrainingGraph from './TrainingGraph';
 import useSound from 'use-sound';
 import useStayAwake from "use-stay-awake";
+import tickSound from '../tick2.mp3';
 
 function Metronome() {
     const [active, setActive] = useState(false);
@@ -9,12 +10,11 @@ function Metronome() {
 
     const [ticks, setTicks] = useState(0);
     const [time, setTime] = useState(40*60);
-    const [volume, setVolume] = useState(0.25);
+    const [volume, setVolume] = useState(0.3);
     const [bpm, setBpm] = useState(85);
     const [secondsPassed, setSecondsPassed] = useState(0);
     const inputVolume = useRef(null);
     const inputBpm = useRef(null);
-    const soundUrl = '../sounds/tick2.mp3';
     const [progressPercent, setProgressPercent] = useState(0);
     const [isMuted, setIsMuted] = useState(false);
 
@@ -25,7 +25,7 @@ function Metronome() {
     useEffect(() => {
         // Volume
         const lsVolume = localStorage.getItem('volume');
-        
+
         if(lsVolume) {
             inputVolume.current.value = lsVolume*100;
             setVolume(lsVolume);
@@ -44,7 +44,7 @@ function Metronome() {
 
     // Sound hook
     const [play, { stop, pause }] = useSound(
-        soundUrl,
+        tickSound,
         { volume: !isMuted ? volume : 0 }
     );
 
@@ -89,6 +89,7 @@ function Metronome() {
         right: bpm > 99 ? `60px` : `70px`,
     };
 
+    // Handlers
     function handlePlayPauseButtonClick() {
         if(!active) {
             setActive(prev => !prev);
@@ -108,7 +109,6 @@ function Metronome() {
         setProgressPercent(0);
     }
 
-    // Handlers
     function handleTimeChange(newTime) {
         setTime(newTime);
     }
@@ -162,7 +162,6 @@ function Metronome() {
                         type="range"
                         ref={inputVolume}
                         defaultValue="0"
-                        className="progressBarvolume"
                         onChange={(e) => {
                             setVolume(e.target.value / 100);
                             // Save to Local Storage as well
