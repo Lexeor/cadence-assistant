@@ -1,5 +1,3 @@
-import Sidebar from './components/Sidebar';
-import Navbar from './components/Navbar';
 import Metronome from './components/Metronome';
 
 function App() {
