@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/cadence-assistant/static/css/main.4093e8c8.css",
+    "main.js": "/cadence-assistant/static/js/main.b7149bbb.js",
+    "static/js/845.9bc2df47.chunk.js": "/cadence-assistant/static/js/845.9bc2df47.chunk.js",
+    "static/media/remixicon.svg?t=1590207869815": "/cadence-assistant/static/media/remixicon.9cedd2150922ead84869.svg",
+    "static/media/remixicon.eot?t=1590207869815": "/cadence-assistant/static/media/remixicon.5cb99e6cba5a4619063f.eot",
+    "static/media/remixicon.ttf?t=1590207869815": "/cadence-assistant/static/media/remixicon.f2616f597cf98f38d234.ttf",
+    "static/media/remixicon.woff?t=1590207869815": "/cadence-assistant/static/media/remixicon.8d09fa11700ed63cf96e.woff",
+    "static/media/remixicon.woff2?t=1590207869815": "/cadence-assistant/static/media/remixicon.90668f6f9b3c2c18a090.woff2",
+    "index.html": "/cadence-assistant/index.html",
+    "main.4093e8c8.css.map": "/cadence-assistant/static/css/main.4093e8c8.css.map",
+    "main.b7149bbb.js.map": "/cadence-assistant/static/js/main.b7149bbb.js.map",
+    "845.9bc2df47.chunk.js.map": "/cadence-assistant/static/js/845.9bc2df47.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4093e8c8.css",
+    "static/js/main.b7149bbb.js"
+  ]
+}
