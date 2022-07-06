@@ -158,6 +158,7 @@ h4 {
   font-size: 2.5rem;
   height: 20%;
   width: 50%;
+  padding-top: 5px;
 }
 
 .graph-container {
@@ -200,7 +201,7 @@ h4 {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1em;
-  margin-top: 15px;
+  margin-top: 10px;
   overflow: hidden;
 }
 
