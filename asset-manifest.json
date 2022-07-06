@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/cadence-assistant/static/css/main.55f85209.css",
+    "main.css": "/cadence-assistant/static/css/main.8b5f3ba0.css",
     "main.js": "/cadence-assistant/static/js/main.b9ab0d8a.js",
     "static/js/845.f0174e28.chunk.js": "/cadence-assistant/static/js/845.f0174e28.chunk.js",
     "static/media/remixicon.svg?t=1590207869815": "/cadence-assistant/static/media/remixicon.9cedd2150922ead84869.svg",
@@ -10,12 +10,12 @@
     "static/media/remixicon.woff2?t=1590207869815": "/cadence-assistant/static/media/remixicon.90668f6f9b3c2c18a090.woff2",
     "static/media/tick2.mp3": "/cadence-assistant/static/media/tick2.9dca73d37caaef3744e7.mp3",
     "index.html": "/cadence-assistant/index.html",
-    "main.55f85209.css.map": "/cadence-assistant/static/css/main.55f85209.css.map",
+    "main.8b5f3ba0.css.map": "/cadence-assistant/static/css/main.8b5f3ba0.css.map",
     "main.b9ab0d8a.js.map": "/cadence-assistant/static/js/main.b9ab0d8a.js.map",
     "845.f0174e28.chunk.js.map": "/cadence-assistant/static/js/845.f0174e28.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.55f85209.css",
+    "static/css/main.8b5f3ba0.css",
     "static/js/main.b9ab0d8a.js"
   ]
 }
