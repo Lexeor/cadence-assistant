@@ -18,8 +18,6 @@
   --violet: #486ED3;
   --layout-border: #E8E8E8;
   --icons-default: #848484;
-  --transparent-button-hover: #e0e0e0;
-  --white-button-hover: #f3f3f3;
   --blink-time: 2s;
 }
 
@@ -202,7 +200,7 @@ h4 {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1em;
-  margin-top: 10px;
+  margin-top: 15px;
   overflow: hidden;
 }
 
@@ -221,8 +219,8 @@ h4 {
 
 .mtn-circle input[type=number]::-webkit-inner-spin-button, 
 .mtn-circle input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .mtn-circle button {
