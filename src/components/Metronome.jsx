@@ -12,6 +12,7 @@ function Metronome() {
     const [time, setTime] = useState(40*60);
     const [volume, setVolume] = useState(0.3);
     const [bpm, setBpm] = useState(85);
+    const [bpmButtonsStyle, setBpmButtonsStyle] = useState({display: 'none'});
     const [secondsPassed, setSecondsPassed] = useState(0);
     const inputVolume = useRef(null);
     const inputBpm = useRef(null);
@@ -33,7 +34,7 @@ function Metronome() {
         }
 
         // Bpm
-        const lsBpm = localStorage.getItem('bpm');
+        const lsBpm = parseInt(localStorage.getItem('bpm'));
 
         if(lsBpm) {
             setBpm(lsBpm);
@@ -151,6 +152,22 @@ function Metronome() {
         setIsMuted(prev => !prev);
     }
 
+    function handleBpmChange(type) {
+        if(type === 'reduce') {
+            inputBpm.current.value = bpm - 1;
+            setBpm(prev => parseInt(prev) - 1);
+        } else {
+            inputBpm.current.value = bpm + 1;
+            setBpm(prev => parseInt(prev) + 1);
+        }
+    }
+
+    function handleHidden(hidden) {
+        hidden
+            ? setBpmButtonsStyle({display: 'none'})
+            : setBpmButtonsStyle({display: 'inline-block'})
+    }
+
     // Progress Bar
     const radius = 200;
     const dashoffset = (radius*Math.PI*2) - ((radius*Math.PI*2) * progressPercent) / 100;
@@ -191,8 +208,17 @@ function Metronome() {
                         }}
                     />
                 </div>
-                <div className="rpm-container">
+                <div 
+                    className="rpm-container"
+                    onMouseEnter={() => handleHidden(false)}
+                    onMouseLeave={() => handleHidden(true)}
+                >
                     <h3 className="label-aside" style={labelStyle}>BPM</h3>
+                    <button 
+                        className="btn-bpm reduce" 
+                        style={bpmButtonsStyle} 
+                        onClick={() => handleBpmChange('reduce')}
+                    >-</button>
                     <input id="rpm"
                         type="number"
                         ref={inputBpm}
@@ -201,11 +227,16 @@ function Metronome() {
                             // Do nothing if input is empty
                             if(!isEmpty(e.target.value))
                             {
-                                setBpm(e.target.value);
+                                setBpm(parseInt(e.target.value));
                                 // Save to Local Storage as well
                                 localStorage.setItem('bpm', e.target.value);
                             }
                         }}></input>
+                        <button 
+                            className="btn-bpm add" 
+                            style={bpmButtonsStyle} 
+                            onClick={() => handleBpmChange('add')}
+                        >+</button>
                 </div>
                 <TrainingGraph active={active} secondsPassed={secondsPassed} bpm={bpm} time={time} handleTimeChange={handleTimeChange} />
                 <div className="controls-container">

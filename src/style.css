@@ -146,9 +146,13 @@ h4 {
 
 .rpm-container {
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
   height: 30%;
 }
+
+
 
 .volume-container {
   display: flex;
@@ -224,7 +228,7 @@ h4 {
   margin: 0;
 }
 
-.mtn-circle button {
+.mtn-circle .btn-metronome {
   font-size: 2rem;
 }
 
@@ -269,6 +273,23 @@ h4 {
 .btn-metronome.resume,
 .btn-metronome.finish {
   font-size: 1.6rem;
+}
+
+.btn-bpm {
+  border: 0;
+  color: var(--main-bg-color);
+  height: 60%;
+  padding: 0 .8em;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.btn-bpm.reduce {
+  background: linear-gradient(90deg, var(--blue) 10%, rgba(217,178,104,0) 100%);
+}
+
+.btn-bpm.add {
+  background: linear-gradient(-90deg, var(--blue) 10%, rgba(217,178,104,0) 100%);
 }
 
 /* Input RANGE */
@@ -373,4 +394,8 @@ input[type="range"]::-webkit-slider-thumb {
 
 .red {
   fill: var(--red);
+}
+
+.rpm-container input {
+  background: pink;
 }
