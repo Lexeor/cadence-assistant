@@ -198,7 +198,6 @@ function Metronome() {
                             // Do nothing if input is empty
                             if(!isEmpty(e.target.value))
                             {
-                                console.log("Set bpm to ", e.target.value);
                                 setBpm(e.target.value);
                                 // Save to Local Storage as well
                                 localStorage.setItem('bpm', e.target.value);
