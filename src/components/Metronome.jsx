@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import TrainingGraph from './TrainingGraph';
 import useSound from 'use-sound';
-import useStayAwake from "use-stay-awake";
-import tickSound from '../tick2.mp3';
+import tickSound from '../sounds/tick.mp3';
+import {isEmpty} from '../utils';
+import { useWakeLock } from 'react-screen-wake-lock';
 
 function Metronome() {
     const [active, setActive] = useState(false);
@@ -16,9 +17,8 @@ function Metronome() {
     const inputBpm = useRef(null);
     const [progressPercent, setProgressPercent] = useState(0);
     const [isMuted, setIsMuted] = useState(false);
-
-    // Device for preventing sleep
-    const device = useStayAwake();
+    
+    const { isSupported, released, request, release } = useWakeLock();
     
     // Set initial variables from Local Storage
     useEffect(() => {
@@ -47,29 +47,25 @@ function Metronome() {
         { volume: !isMuted ? volume : 0 }
     );
 
-    // Prevent device sleep
-    useEffect(() => {
-        active
-            ? device.preventSleeping()
-            : device.allowSleeping()
-    }, [active]);
-
     // Ticks + sound
     useEffect(() => {
-        active && !isPaused && setTimeout(() => {
-            if(active) {
-                play();
-                setTicks(prevTicks => prevTicks + 1);
-            }
-        }, 60000/bpm);
+        if(active && !isPaused) {
+            setTimeout(() => {
+                if(active) {
+                    play();
+                    setTicks(prevTicks => prevTicks + 1);
+                }
+            }, 60000/bpm);
+        }
       }, [active, ticks, isPaused]);
 
     //Timer
     useEffect(() => {
-        active && !isPaused && setTimeout(() => {
-            setSecondsPassed(prevSeconds => prevSeconds + 1);
-            setProgressPercent(secondsPassed * 100 / time);
-        }, 1000);
+        if(active && !isPaused) {
+            setTimeout(() => {
+                setSecondsPassed(prevSeconds => prevSeconds + 1);
+                setProgressPercent(secondsPassed * 100 / time);
+        }, 1000);}
     }, [active, secondsPassed, isPaused]);
     
     // Classes
@@ -120,6 +116,9 @@ function Metronome() {
     // Handlers
     function handlePlayPauseButtonClick() {
         if(!active) {
+            if(isSupported) {
+                (released === false ? release() : request())
+            }
             setActive(prev => !prev);
         } else {
             setIsPaused(prev => !prev);
@@ -131,7 +130,11 @@ function Metronome() {
     }
 
     function handleStopButtonClick() {
+        if(isSupported) {
+            (released === false ? release() : request())
+        }
         setActive(prev => !prev);
+        stop();
         setIsPaused(false);
         setSecondsPassed(0);
         setProgressPercent(0);
@@ -192,9 +195,14 @@ function Metronome() {
                         ref={inputBpm}
                         defaultValue="85"
                         onChange={(e) => {
-                            setBpm(e.target.value);
-                            // Save to Local Storage as well
-                            localStorage.setItem('bpm', e.target.value)
+                            // Do nothing if input is empty
+                            if(!isEmpty(e.target.value))
+                            {
+                                console.log("Set bpm to ", e.target.value);
+                                setBpm(e.target.value);
+                                // Save to Local Storage as well
+                                localStorage.setItem('bpm', e.target.value);
+                            }
                         }}></input>
                 </div>
                 <TrainingGraph active={active} secondsPassed={secondsPassed} bpm={bpm} time={time} handleTimeChange={handleTimeChange} />

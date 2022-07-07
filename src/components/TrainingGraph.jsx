@@ -1,6 +1,4 @@
-import { getByPlaceholderText } from '@testing-library/react';
-import React, {useState, useEffect} from 'react'
-import { useDeferredValue } from 'react';
+import React, {useEffect} from 'react'
 
 function TrainingGraph({active, secondsPassed, bpm, time, handleTimeChange}) {
     const bars = [ 85, 85, 100, 85, 85, 100, 85, 100, 85, 85, 100, 85 ];
