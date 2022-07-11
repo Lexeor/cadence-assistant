@@ -26,9 +26,6 @@ function TrainingGraph({active, secondsPassed, bpm, time, handleTimeChange}) {
     const inputStyle = {
       display: active ? 'none' : 'flex',
     };
-    const labelStyle = {
-      right: time > 99*60 ? `50px` : `60px`,
-    };
 
     const barsHtml = bars.map((item, idx) => {
       const isActive = idx === activeBar();
@@ -44,7 +41,7 @@ function TrainingGraph({active, secondsPassed, bpm, time, handleTimeChange}) {
   return (
     <div className="graph-container">
       <div className="timer-input" style={inputStyle}>
-        <h3 className="label-aside" style={labelStyle}>Mins</h3>
+        <h3 className="label-aside">Mins</h3>
         <input id="training-time"
           type="number"
           defaultValue={time/60}

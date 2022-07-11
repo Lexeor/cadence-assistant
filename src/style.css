@@ -7,6 +7,7 @@
   --text: #CBCBD3;
   --text-shaded: #393943;
   --blue: #6BBAFF;
+  --blue-hex: 107, 186, 255;
   --blue-light: #82c5ff;
   --blue-shaded: #38617F;
   --red: #BB3B6E;
@@ -138,10 +139,14 @@ h4 {
 
 .label-aside {
   position: absolute;
-  top: .60rem;
-  /* right: 62px; */
+  top: 17px;
+  left: 66%;
   font-size: 2rem;
   color: var(--blue-shaded);
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 
 .rpm-container {
@@ -216,7 +221,7 @@ h4 {
   border: 0;
   color: whitesmoke;
   font-size: 5.5rem;
-  width: 60%;
+  width: 40%;
   max-width: 100%;
   text-align: center;
   outline: none;
@@ -277,19 +282,20 @@ h4 {
 
 .btn-bpm {
   border: 0;
-  color: var(--main-bg-color);
-  height: 60%;
-  padding: 0 .8em;
+  color: var(--text);
+  height: 70%;
+  width: 30%;
+  padding: 0 .2em;
   font-size: 3rem;
   cursor: pointer;
 }
 
 .btn-bpm.reduce {
-  background: linear-gradient(90deg, var(--blue) 10%, rgba(217,178,104,0) 100%);
+  background: linear-gradient(90deg, rgba(var(--blue-hex), .3) 10%, rgba(0,0,0,0) 100%);
 }
 
 .btn-bpm.add {
-  background: linear-gradient(-90deg, var(--blue) 10%, rgba(217,178,104,0) 100%);
+  background: linear-gradient(-90deg, rgba(var(--blue-hex), .3) 10%, rgba(0,0,0,0) 100%);
 }
 
 /* Input RANGE */
@@ -394,8 +400,4 @@ input[type="range"]::-webkit-slider-thumb {
 
 .red {
   fill: var(--red);
-}
-
-.rpm-container input {
-  background: pink;
 }

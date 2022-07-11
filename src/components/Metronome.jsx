@@ -112,11 +112,6 @@ function Metronome() {
         {sign()}
         </svg>;
 
-    // BPM label indent
-    const labelStyle = {
-        right: bpm > 99 ? `60px` : `70px`,
-    };
-
     // Handlers
     function handlePlayPauseButtonClick() {
         if(!active) {
@@ -213,7 +208,7 @@ function Metronome() {
                     onMouseEnter={() => handleHidden(false)}
                     onMouseLeave={() => handleHidden(true)}
                 >
-                    <h3 className="label-aside" style={labelStyle}>BPM</h3>
+                    <h3 className="label-aside">BPM</h3>
                     <button 
                         className="btn-bpm reduce" 
                         style={bpmButtonsStyle} 
