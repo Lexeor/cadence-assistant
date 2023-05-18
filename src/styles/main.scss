@@ -1,0 +1,74 @@
+@import "./variables";
+
+// Generic
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+html,
+body,
+main {
+  margin: 0;
+  padding: 0;
+  font-family: $fontMain;
+}
+
+// Layout
+
+.container-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+  width: 100%;
+  max-width: 1280px;
+}
+
+.App {
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
+  background-color: $colorBgMain;
+  color: $text;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+}
+
+.panel-rounded {
+  width: 100%;
+  border-radius: 22px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  padding: 1.2em;
+}
+
+// Typographics
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: $fontHeaders;
+  margin: 0;
+  color: $colorPrimary;
+  letter-spacing: 1px;
+}
+
+@import "./metronome";
+@import "./inputs";
+@import "./trainingGraph";

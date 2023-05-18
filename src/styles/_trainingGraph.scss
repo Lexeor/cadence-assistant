@@ -1,0 +1,71 @@
+.graph {
+  border: 1px solid $colorPrimaryShaded;
+  background-color: transparent;
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 18px;
+}
+
+.bar {
+  height: 90%;
+  background-color: $colorPrimaryShaded;
+  margin: 0 2px;
+  border-radius: 4px 4px 0 0;
+}
+
+.bar-active {
+  background-color: $colorPrimary;
+  animation: blink $blinkTime linear infinite;
+}
+
+/* For JS injection */
+@keyframes blink {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.bar-passed {
+  background-color: $colorPrimary;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+  font-family: $fontHeaders;
+  font-size: 2em;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.svg-progress {
+  position: absolute;
+  z-index: 2;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.svg-progress circle {
+  stroke: $colorPrimary;
+  animation: all 1s linear;
+}
+
+.svg-progress-background {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.svg-volume {
+  fill: $colorPrimary;
+}
+
+.red {
+  fill: $colorRed;
+}
